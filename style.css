@@ -18,10 +18,14 @@
 }
 
 #screen {
+  display: flex;
   background-color: #F2F9F8;
   margin: 10px;
   height: 90px;
   border: 2px solid black;
+  font-size: 50px;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .buttons, 
