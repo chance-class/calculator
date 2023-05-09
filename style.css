@@ -1,0 +1,19 @@
+#container {
+  background-color: #CAF7F4;
+  width: 450px;
+  height: 600px;
+  margin: 30px auto;
+  padding: 10px;
+}
+
+#screen {
+  background-color: #F2F9F8;
+  margin: 10px;
+  height: 80px;
+}
+
+.buttons, 
+.cancel {
+  display: flex;
+}
+
