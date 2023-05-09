@@ -1,7 +1,7 @@
 #container {
   background-color: #CAF7F4;
   width: 390px;
-  height: 500px;
+  height: 520px;
   margin: 30px auto;
   padding: 20px;
   border: 5px solid black;
@@ -30,6 +30,9 @@
   justify-content: space-between;
   margin: 20px 0;
 }
+.cancel {
+  padding-top: 10px;
+}
 
 #clear, 
 #delete {
@@ -38,11 +41,11 @@
 }
 
 #delete {
-  background-color: #F5C8E0;
+  background-color: #DBC8F5;
 }
 
 #clear {
-  background-color: #DBC8F5;
+  background-color: #F5C8C8;
 }
 
 .buttons {
