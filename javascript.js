@@ -42,6 +42,7 @@ let test = operate(5, "+", 3);
 console.log(test);
 
 const screen = document.querySelector('#screen');
+let screenValue = screen.textContent;
 
 document.addEventListener('keydown', (event) => {
     if (!isNaN(Number(event.key))) {
@@ -52,6 +53,9 @@ document.addEventListener('keydown', (event) => {
       console.log(operator);
     } else if (event.key === ".") {
       screen.textContent += event.key;
+    } else if (event.key === "=") {
+      operate();
+      screen.textContent = total;
     }
 });
 
@@ -96,3 +100,28 @@ const zero = document.querySelector('#zero');
 zero.addEventListener('click', () => {
     screen.textContent += "0";
   });
+const divide = document.querySelector('#divide');
+div.addEventListener('click', () => {
+  screen.textContent += " / ";
+});
+const multiply = document.querySelector('#multiply');
+multiply.addEventListener('click', () => {
+    screen.textContent += " x ";
+  });
+const subtract = document.querySelector('#subtract');
+subtract.addEventListener('click', () => {
+  screen.textContent += " - ";
+});
+const add = document.querySelector('#add');
+add.addEventListener('click', () => {
+    screen.textContent += " + ";
+});
+const decimal = document.querySelector('#decimal');
+zero.addEventListener('click', () => {
+    screen.textContent += ".";
+});
+const equal = document.querySelector('#equal');
+equal.addEventListener('click', () => {
+  operate();
+  screen.textContent = total;
+});
