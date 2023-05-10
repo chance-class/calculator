@@ -55,50 +55,50 @@ document.addEventListener('keydown', (event) => {
       screen.textContent += event.key;
     } else if (event.key === "=") {
       operate();
-      screen.textContent = total;
+      screen.textContent = result;
     }
 });
 
 const one = document.querySelector('#one');
 one.addEventListener('click', () => {
-  screen.textContent += "1";
+  screen.textContent += 1;
 });
 
 const two = document.querySelector('#two');
 two.addEventListener('click', () => {
-    screen.textContent += "2";
+    screen.textContent += 2;
   });
 const three = document.querySelector('#three');
 three.addEventListener('click', () => {
-    screen.textContent += "3";
+    screen.textContent += 3;
   });
 const four = document.querySelector('#four');
 four.addEventListener('click', () => {
-    screen.textContent += "4";
+    screen.textContent += 4;
   });
 const five = document.querySelector('#five');
 five.addEventListener('click', () => {
-    screen.textContent += "5";
+    screen.textContent += 5;
   });
 const six = document.querySelector('#six');
 six.addEventListener('click', () => {
-    screen.textContent += "6";
+    screen.textContent += 6;
   });
 const seven = document.querySelector('#seven');
 seven.addEventListener('click', () => {
-    screen.textContent += "7";
+    screen.textContent += 7;
   });
 const eight = document.querySelector('#eight');
 eight.addEventListener('click', () => {
-    screen.textContent += "8";
+    screen.textContent += 8;
   });
 const nine = document.querySelector('#nine');
 nine.addEventListener('click', () => {
-    screen.textContent += "9";
+    screen.textContent += 9;
   });
 const zero = document.querySelector('#zero');
 zero.addEventListener('click', () => {
-    screen.textContent += "0";
+    screen.textContent += 0;
   });
 const divide = document.querySelector('#divide');
 divide.addEventListener('click', () => {
@@ -127,5 +127,13 @@ decimal.addEventListener('click', () => {
 const equal = document.querySelector('#equal');
 equal.addEventListener('click', () => {
   operate();
-  screen.textContent = total;
+  screen.textContent = result;
 });
+const clear = document.querySelector("#clear");
+clear.addEventListener('click', () => {
+  screen.replaceChildren();
+});
+const del = document.querySelector('#delete');
+del.addEventListener('click', () => {
+  screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
+})
