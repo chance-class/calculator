@@ -101,24 +101,28 @@ zero.addEventListener('click', () => {
     screen.textContent += "0";
   });
 const divide = document.querySelector('#divide');
-div.addEventListener('click', () => {
+divide.addEventListener('click', () => {
+  operator = "/";
   screen.textContent += " / ";
 });
 const multiply = document.querySelector('#multiply');
 multiply.addEventListener('click', () => {
-    screen.textContent += " x ";
-  });
+  operator = "x";
+  screen.textContent += " x ";
+});
 const subtract = document.querySelector('#subtract');
 subtract.addEventListener('click', () => {
+  operator = "-";
   screen.textContent += " - ";
 });
 const add = document.querySelector('#add');
 add.addEventListener('click', () => {
-    screen.textContent += " + ";
+  operator = "+";
+  screen.textContent += " + ";
 });
 const decimal = document.querySelector('#decimal');
-zero.addEventListener('click', () => {
-    screen.textContent += ".";
+decimal.addEventListener('click', () => {
+  screen.textContent += ".";
 });
 const equal = document.querySelector('#equal');
 equal.addEventListener('click', () => {
