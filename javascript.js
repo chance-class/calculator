@@ -189,6 +189,9 @@ equal.addEventListener('click', () => {
 });
 const clear = document.querySelector("#clear");
 clear.addEventListener('click', () => {
+  n1 = undefined;
+  operator = undefined;
+  n2 = undefined;
   screen.replaceChildren();
 });
 const del = document.querySelector('#delete');
