@@ -31,25 +31,25 @@ function firstStep (input) {
 }
 
 function operate (n1, operator, n2) {
-  if (operator === "/" && n2 === 0) {
+  if (operator === "/" && n2 === 0.00000) {
     alert("Nice try!");
     result = n1;
     return result;
   } else if (operator === "+") {
     num = toAdd(n1, n2);
-    result = num.toFixed(5);
+    result = num.toFixed(5).replace(/0+$/, "");
     return result;
   } else if (operator === "-") {
     num = toSub(n1, n2);
-    result = num.toFixed(5);
+    result = num.toFixed(5).replace(/0+$/, "");
     return result;
   } else if (operator === "/") {
     num = toDiv(n1, n2);
-    result = num.toFixed(5);
+    result = num.toFixed(5).replace(/0+$/, "");
     return result;
   } else if (operator === "x") {
     num = toMult(n1, n2);
-    result = num.toFixed(5);
+    result = num.toFixed(5).replace(/0+$/, "");
     return result;
   } else {
     return "error";
