@@ -1,4 +1,4 @@
-let n1, operator, n2;
+let n1, operator, n2, result;
 
 function toAdd (n1, n2) {
   result = (n1 + n2);
@@ -20,6 +20,16 @@ function toMult (n1, n2) {
   return result;
 }
 
+function firstStep (input) {
+  input = String(screen.textContent);
+  let newInput = input.split(" ");
+  n1 = newInput[0];
+  operator = newInput[1];
+  n2 = newInput[2];
+  console.log(n1, operator, n2);
+  return (n1, operator, n2);
+}
+
 function operate (n1, operator, n2) {
   if (operator === "+") {
     toAdd(n1, n2);
@@ -38,22 +48,18 @@ function operate (n1, operator, n2) {
   }
 }
 
-let test = operate(5, "+", 3);
-console.log(test);
-
 const screen = document.querySelector('#screen');
-let screenValue = screen.textContent;
 
 document.addEventListener('keydown', (event) => {
     if (!isNaN(Number(event.key))) {
       screen.textContent += event.key;
     } else if (event.key === "/" || event.key === "x" || event.key === "+" || event.key === "-" ) {
-      operator = event.key;
-      screen.textContent += event.key;
-      console.log(operator);
+      screen.textContent += ` ${event.key} `;
+      firstStep();
     } else if (event.key === ".") {
       screen.textContent += event.key;
     } else if (event.key === "=") {
+      firstStep();
       operate();
       screen.textContent = result;
     }
@@ -102,23 +108,24 @@ zero.addEventListener('click', () => {
   });
 const divide = document.querySelector('#divide');
 divide.addEventListener('click', () => {
-  operator = "/";
   screen.textContent += " / ";
+  firstStep();
 });
 const multiply = document.querySelector('#multiply');
 multiply.addEventListener('click', () => {
-  operator = "x";
   screen.textContent += " x ";
+  firstStep();
 });
 const subtract = document.querySelector('#subtract');
 subtract.addEventListener('click', () => {
-  operator = "-";
   screen.textContent += " - ";
+  firstStep();
 });
 const add = document.querySelector('#add');
 add.addEventListener('click', () => {
-  operator = "+";
+//  operator = "+";
   screen.textContent += " + ";
+  firstStep();
 });
 const decimal = document.querySelector('#decimal');
 decimal.addEventListener('click', () => {
@@ -126,7 +133,10 @@ decimal.addEventListener('click', () => {
 });
 const equal = document.querySelector('#equal');
 equal.addEventListener('click', () => {
+  console.log(screen.textContent);
   operate();
+  console.log(operator);
+  console.log(result);
   screen.textContent = result;
 });
 const clear = document.querySelector("#clear");
@@ -137,3 +147,4 @@ const del = document.querySelector('#delete');
 del.addEventListener('click', () => {
   screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
 })
+
