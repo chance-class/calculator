@@ -110,8 +110,7 @@ document.addEventListener('keydown', (event) => {
       operator = undefined;
       n1 = null;
       n2 = null;
-      var no = null;
-      screen.value = no;
+      screen.value = null;
     }
 });
 
