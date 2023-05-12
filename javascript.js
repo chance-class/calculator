@@ -23,7 +23,6 @@ function firstStep (input) {
   n1 = parseFloat(newInput[0]).toFixed(4);
   operator = newInput[1];
   n2 = parseFloat(newInput[2]).toFixed(4);
-  console.log(n1, operator, n2);
   return (n1, operator, n2);
 }
 
@@ -55,14 +54,14 @@ function operate (n1, operator, n2) {
       if (n1.toString().includes(".")) {
         result = n1.toFixed(4).replace(/0+$/, "");
       } else {
-        result = n1.toFixed(4);
+        result = n1.toFixed();
       }
       return result;
     } else {
       if (num.toString().includes(".")) {
         result = num.toFixed(4).replace(/0+$/, "");
       } else {
-        result = num.toFixed(4);
+        result = num.toFixed();
       }
       n1 = null;
       n2 = null;
@@ -250,7 +249,6 @@ decimal.addEventListener('click', () => {
 });
 const equal = document.querySelector('#equal');
 equal.addEventListener('click', () => {
-  console.log(screen.textContent);
   firstStep();
   operate(n1, operator, n2);
   screen.textContent = result;
