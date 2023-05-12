@@ -33,25 +33,25 @@ function firstStep (input) {
 function operate (n1, operator, n2) {
   if (operator === "+") {
     num = toAdd(n1, n2);
-    result = num.toFixed(4).replace(/0+$/, "");
+    result = num.toFixed(4).replace(/.0+$/, "");
     return result;
   } else if (operator === "-") {
     num = toSub(n1, n2);
-    result = num.toFixed(4).replace(/0+$/, "");
+    result = num.toFixed(4).replace(/.0+$/, "");
     return result;
   } else if (operator === "/") {
     num = toDiv(n1, n2);
     if (num === Infinity) {
       alert("Nice try!");
-      result = n1.replace(/0+$/, "");
+      result = n1.replace(/.0+$/, "");
       return result;
     } else {
-      result = num.toFixed(4).replace(/0+$/, "");
+      result = num.toFixed(4).replace(/.0+$/, "");
       return result;
     }
   } else if (operator === "x") {
     num = toMult(n1, n2);
-    result = num.toFixed(4).replace(/0+$/, "");
+    result = num.toFixed(4).replace(/.0+$/, "");
     return result;
   } else {
     return "error";
