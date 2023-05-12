@@ -99,6 +99,8 @@ document.addEventListener('keydown', (event) => {
       };
     } else if (event.key === ".") {
       screen.textContent += event.key;
+    } else if (event.key === "Backspace") {
+      screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
     } else if (event.key === "=") {
       firstStep();
       operate(n1, operator, n2);
