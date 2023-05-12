@@ -103,14 +103,17 @@ document.addEventListener('keydown', (event) => {
     } else if (event.key === "Backspace") {
       screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
     } else if (event.key === "=" || event.key === "Enter") {
-      firstStep();
-      operate(n1, operator, n2);
-      screen.textContent = result;
-      lastPress = equal;
-      operator = undefined;
-      n1 = null;
-      n2 = null;
-      screen.value = null;
+      if (screen.textContent === "" || operator === undefined) {
+        return;
+      } else {
+        firstStep();
+        operate(n1, operator, n2);
+        screen.textContent = result;
+        lastPress = equal;
+        operator = undefined;
+        n1 = null;
+        n2 = null;
+        screen.value = null;
     }
 });
 
@@ -264,26 +267,36 @@ add.addEventListener('click', () => {
 
 const decimal = document.querySelector('#decimal');
 decimal.addEventListener('click', () => {
-  screen.textContent += ".";
+  if (operator !== undefined && !(n2.includes("."))) {
+    screen.textContent += ".";
+  } else if (operator === undefined && !(screen.textContent.includes("."))) {
+    screen.textContent += ".";
+  } 
 });
+
 const equal = document.querySelector('#equal');
 equal.addEventListener('click', () => {
-  firstStep();
-  operate(n1, operator, n2);
-  screen.textContent = result;
-  lastPress = equal;
-  operator = undefined;
-  n1 = null;
-  n2 = null;
-  screen.value = null;
+  if (screen.textContent === "" || operator === undefined) {
+    return;
+  } else {
+    firstStep();
+    operate(n1, operator, n2);
+    screen.textContent = result;
+    lastPress = equal;
+    operator = undefined;
+    n1 = null;
+    n2 = null;
+    screen.value = null;
+  }
 });
 
 const clear = document.querySelector("#clear");
 clear.addEventListener('click', () => {
-  n1 = undefined;
+  n1 = null;
   operator = undefined;
-  n2 = undefined;
+  n2 = null;
   screen.replaceChildren();
+  screen.value = null;
 });
 
 const del = document.querySelector('#delete');
