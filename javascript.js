@@ -16,9 +16,6 @@ function toMult (n1, n2) {
   return (n1 * n2);
 }
 
-console.log(toAdd(5, 7));
-console.log(operate(5, "+", 7));
-
 
 function firstStep (input) {
   input = String(screen.textContent);
@@ -36,7 +33,7 @@ function operate (n1, operator, n2) {
     if (num.toString().includes(".")) {
       result = num.toFixed(4).replace(/0+$/, "");
     } else {
-      result = num.toFixed(4).replace(/.0+$/, "");
+      result = num.toFixed();
     }
     n1 = null;
     n2 = null;
@@ -46,7 +43,7 @@ function operate (n1, operator, n2) {
     if (num.toString().includes(".")) {
       result = num.toFixed(4).replace(/0+$/, "");
     } else {
-      result = num.toFixed(4).replace(/.0+$/, "");
+      result = num.toFixed();
     }
     n1 = null;
     n2 = null;
@@ -58,14 +55,14 @@ function operate (n1, operator, n2) {
       if (n1.toString().includes(".")) {
         result = n1.toFixed(4).replace(/0+$/, "");
       } else {
-        result = n1.toFixed(4).replace(/.0+$/, "");
+        result = n1.toFixed(4);
       }
       return result;
     } else {
       if (num.toString().includes(".")) {
         result = num.toFixed(4).replace(/0+$/, "");
       } else {
-        result = num.toFixed(4).replace(/.0+$/, "");
+        result = num.toFixed(4);
       }
       n1 = null;
       n2 = null;
@@ -76,7 +73,7 @@ function operate (n1, operator, n2) {
     if (num.toString().includes(".")) {
       result = num.toFixed(4).replace(/0+$/, "");
     } else {
-      result = num.toFixed(4).replace(/.0+$/, "");
+      result = num.toFixed();
     }
     n1 = null;
     n2 = null;
