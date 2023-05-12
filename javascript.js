@@ -1,4 +1,4 @@
-let n1, operator, n2, result, num;
+let n1, operator, n2, result, num, lastPress;
 
 function toAdd (n1, n2) {
   return (+n1 + +n2);
@@ -84,6 +84,7 @@ function operate (n1, operator, n2) {
 
 const screen = document.querySelector('#screen');
 
+
 document.addEventListener('keydown', (event) => {
     if (!isNaN(Number(event.key))) {
       screen.textContent += event.key;
@@ -101,7 +102,7 @@ document.addEventListener('keydown', (event) => {
       screen.textContent += event.key;
     } else if (event.key === "Backspace") {
       screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
-    } else if (event.key === "=") {
+    } else if (event.key === "=" || event.key === "Enter") {
       firstStep();
       operate(n1, operator, n2);
       screen.textContent = result;
@@ -114,7 +115,6 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-let lastPress;
 
 const one = document.querySelector('#one');
 one.addEventListener('click', () => {
@@ -133,6 +133,7 @@ two.addEventListener('click', () => {
   }
     screen.textContent += 2;
   });
+
 const three = document.querySelector('#three');
 three.addEventListener('click', () => {
   if (lastPress === equal) {
@@ -141,6 +142,7 @@ three.addEventListener('click', () => {
   }
     screen.textContent += 3;
   });
+
 const four = document.querySelector('#four');
 four.addEventListener('click', () => {
   if (lastPress === equal) {
@@ -149,6 +151,7 @@ four.addEventListener('click', () => {
   }
     screen.textContent += 4;
   });
+
 const five = document.querySelector('#five');
 five.addEventListener('click', () => {
   if (lastPress === equal) {
@@ -157,6 +160,7 @@ five.addEventListener('click', () => {
   }
     screen.textContent += 5;
   });
+
 const six = document.querySelector('#six');
 six.addEventListener('click', () => {
   if (lastPress === equal) {
@@ -165,6 +169,7 @@ six.addEventListener('click', () => {
   }
     screen.textContent += 6;
   });
+
 const seven = document.querySelector('#seven');
 seven.addEventListener('click', () => {
   if (lastPress === equal) {
@@ -173,6 +178,7 @@ seven.addEventListener('click', () => {
   }
     screen.textContent += 7;
   });
+
 const eight = document.querySelector('#eight');
 eight.addEventListener('click', () => {
   if (lastPress === equal) {
@@ -181,6 +187,7 @@ eight.addEventListener('click', () => {
   }
     screen.textContent += 8;
   });
+
 const nine = document.querySelector('#nine');
 nine.addEventListener('click', () => {
   if (lastPress === equal) {
@@ -189,6 +196,7 @@ nine.addEventListener('click', () => {
   }
     screen.textContent += 9;
   });
+
 const zero = document.querySelector('#zero');
 zero.addEventListener('click', () => {
   if (lastPress === equal) {
@@ -197,6 +205,8 @@ zero.addEventListener('click', () => {
   }
     screen.textContent += 0;
   });
+
+
 const divide = document.querySelector('#divide');
 divide.addEventListener('click', () => {
     lastPress = undefined;
@@ -209,8 +219,8 @@ divide.addEventListener('click', () => {
     operator = "/";
     screen.textContent = result + ` ${operator} `;
   }
-  
 });
+
 const multiply = document.querySelector('#multiply');
 multiply.addEventListener('click', () => {
     lastPress = undefined;
@@ -224,6 +234,7 @@ multiply.addEventListener('click', () => {
     screen.textContent = result + ` ${operator} `;
   }
 });
+
 const subtract = document.querySelector('#subtract');
 subtract.addEventListener('click', () => {
     lastPress = undefined;
@@ -237,6 +248,7 @@ subtract.addEventListener('click', () => {
     screen.textContent = result + ` ${operator} `;
   }
 });
+
 const add = document.querySelector('#add');
 add.addEventListener('click', () => {
     lastPress = undefined;
@@ -250,6 +262,7 @@ add.addEventListener('click', () => {
     screen.textContent = result + ` ${operator} `;
   }
 });
+
 const decimal = document.querySelector('#decimal');
 decimal.addEventListener('click', () => {
   screen.textContent += ".";
@@ -265,6 +278,7 @@ equal.addEventListener('click', () => {
   n2 = null;
   screen.value = null;
 });
+
 const clear = document.querySelector("#clear");
 clear.addEventListener('click', () => {
   n1 = undefined;
@@ -272,6 +286,7 @@ clear.addEventListener('click', () => {
   n2 = undefined;
   screen.replaceChildren();
 });
+
 const del = document.querySelector('#delete');
 del.addEventListener('click', () => {
   screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
