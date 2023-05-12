@@ -103,7 +103,12 @@ document.addEventListener('keydown', (event) => {
       firstStep();
       operate(n1, operator, n2);
       screen.textContent = result;
-      operator = "";
+      lastPress = equal;
+      operator = undefined;
+      n1 = null;
+      n2 = null;
+      var no = null;
+      screen.value = no;
     }
 });
 
