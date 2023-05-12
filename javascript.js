@@ -38,6 +38,8 @@ function operate (n1, operator, n2) {
     } else {
       result = num.toFixed(4).replace(/.0+$/, "");
     }
+    n1 = null;
+    n2 = null;
     return result;
   } else if (operator === "-") {
     num = toSub(n1, n2);
@@ -46,6 +48,8 @@ function operate (n1, operator, n2) {
     } else {
       result = num.toFixed(4).replace(/.0+$/, "");
     }
+    n1 = null;
+    n2 = null;
     return result;
   } else if (operator === "/") {
     num = toDiv(n1, n2);
@@ -63,6 +67,8 @@ function operate (n1, operator, n2) {
       } else {
         result = num.toFixed(4).replace(/.0+$/, "");
       }
+      n1 = null;
+      n2 = null;
       return result;
     }
   } else if (operator === "x") {
@@ -72,6 +78,8 @@ function operate (n1, operator, n2) {
     } else {
       result = num.toFixed(4).replace(/.0+$/, "");
     }
+    n1 = null;
+    n2 = null;
     return result;
   } else {
     return "error";
