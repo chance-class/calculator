@@ -263,8 +263,7 @@ equal.addEventListener('click', () => {
   operator = undefined;
   n1 = null;
   n2 = null;
-  var no = null;
-  screen.value = no;
+  screen.value = null;
 });
 const clear = document.querySelector("#clear");
 clear.addEventListener('click', () => {
