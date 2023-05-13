@@ -100,8 +100,10 @@ document.addEventListener('keydown', (event) => {
       };
     } else if (event.key === ".") {
       if (operator !== undefined) {
-        if (operator === "+") {
-          secondDec = screen.textContent.substring("\+", screen.textContent.length);
+        if (operator === "\+") {
+          myString = screen.textContent.replace(/\+/g, "M")
+          findOp = myString.search("M");
+          secondDec = myString.substring(findOp, myString.length);
           if (secondDec.includes(".")) {
             console.log(secondDec);
             return;
@@ -290,8 +292,10 @@ add.addEventListener('click', () => {
 const decimal = document.querySelector('#decimal');
 decimal.addEventListener('click', () => {
   if (operator !== undefined) {
-    if (operator === "+") {
-      secondDec = screen.textContent.substring("\+", screen.textContent.length);
+    if (operator === "\+") {
+      myString = screen.textContent.replace(/\+/g, "M")
+      findOp = myString.search("M");
+      secondDec = myString.substring(findOp, myString.length);
       if (secondDec.includes(".")) {
         console.log(secondDec);
         return;
