@@ -83,7 +83,7 @@ function operate (n1, operator, n2) {
 }
 
 const screen = document.querySelector('#screen');
-
+let findOp, secondDec;
 
 document.addEventListener('keydown', (event) => {
     if (!isNaN(Number(event.key))) {
@@ -99,7 +99,28 @@ document.addEventListener('keydown', (event) => {
         screen.textContent = result + ` ${operator} `;
       };
     } else if (event.key === ".") {
-      screen.textContent += event.key;
+      if (operator !== undefined) {
+        if (operator === "+") {
+          secondDec = screen.textContent.substring("\+", screen.textContent.length);
+          if (secondDec.includes(".")) {
+            console.log(secondDec);
+            return;
+          } else {
+            screen.textContent += ".";
+          }
+        } else {
+          findOp = screen.textContent.search(operator);
+          secondDec = screen.textContent.substring(findOp, screen.textContent.length);
+          if (secondDec.includes(".")) {
+            console.log(secondDec);
+            return;
+          } else {
+            screen.textContent += ".";
+          }
+        }
+       } else if (operator === undefined && !(screen.textContent.includes("."))) {
+        screen.textContent += ".";
+      } 
     } else if (event.key === "Backspace") {
       screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
     } else if (event.key === "=" || event.key === "Enter") {
@@ -268,9 +289,26 @@ add.addEventListener('click', () => {
 
 const decimal = document.querySelector('#decimal');
 decimal.addEventListener('click', () => {
-  if (operator !== undefined && !(n2.includes("."))) {
-    screen.textContent += ".";
-  } else if (operator === undefined && !(screen.textContent.includes("."))) {
+  if (operator !== undefined) {
+    if (operator === "+") {
+      secondDec = screen.textContent.substring("\+", screen.textContent.length);
+      if (secondDec.includes(".")) {
+        console.log(secondDec);
+        return;
+      } else {
+        screen.textContent += ".";
+      }
+    } else {
+      findOp = screen.textContent.search(operator);
+      secondDec = screen.textContent.substring(findOp, screen.textContent.length);
+      if (secondDec.includes(".")) {
+        console.log(secondDec);
+        return;
+      } else {
+        screen.textContent += ".";
+      }
+    }
+   } else if (operator === undefined && !(screen.textContent.includes("."))) {
     screen.textContent += ".";
   } 
 });
