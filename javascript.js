@@ -23,6 +23,7 @@ function firstStep (input) {
   n1 = parseFloat(newInput[0]).toFixed(4);
   operator = newInput[1];
   n2 = parseFloat(newInput[2]).toFixed(4);
+  screen.textContent = `${n1} ${operator} `;
   return (n1, operator, n2);
 }
 
