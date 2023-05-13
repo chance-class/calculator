@@ -114,6 +114,7 @@ document.addEventListener('keydown', (event) => {
         n1 = null;
         n2 = null;
         screen.value = null;
+      }
     }
 });
 
@@ -302,5 +303,4 @@ clear.addEventListener('click', () => {
 const del = document.querySelector('#delete');
 del.addEventListener('click', () => {
   screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
-})
-
+});
