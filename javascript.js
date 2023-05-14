@@ -95,41 +95,8 @@ document.addEventListener('keydown', (event) => {
     if (!isNaN(Number(event.key))) screen.textContent += event.key;
     switch (event.key) {
       case "/":
-        if (operator === undefined) {
-          screen.textContent += ` ${event.key} `;
-          firstStep();
-        } else {
-          firstStep();
-          operate(n1, operator, n2);
-          operator = event.key;
-          screen.textContent = result + ` ${operator} `;
-        };
-        break;
-
       case "x":
-        if (operator === undefined) {
-          screen.textContent += ` ${event.key} `;
-          firstStep();
-        } else {
-          firstStep();
-          operate(n1, operator, n2);
-          operator = event.key;
-          screen.textContent = result + ` ${operator} `;
-        };
-        break;
-
       case "+":
-        if (operator === undefined) {
-          screen.textContent += ` ${event.key} `;
-          firstStep();
-        } else {
-          firstStep();
-          operate(n1, operator, n2);
-          operator = event.key;
-          screen.textContent = result + ` ${operator} `;
-        };
-        break;
-
       case "-":
         if (operator === undefined) {
           screen.textContent += ` ${event.key} `;
@@ -178,20 +145,6 @@ document.addEventListener('keydown', (event) => {
         break;
 
       case "=":
-        if (screen.textContent === "" || operator === undefined) {
-          return;
-        } else {
-          firstStep();
-          operate(n1, operator, n2);
-          screen.textContent = result;
-          lastPress = equal;
-          operator = undefined;
-          n1 = null;
-          n2 = null;
-          screen.value = null;
-        }
-        break;
-
       case "Enter":
         if (screen.textContent === "" || operator === undefined) {
           return;
