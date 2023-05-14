@@ -36,7 +36,7 @@ function operate (n1, operator, n2) {
     num = toSub(n1, n2);
     num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
     return result;
-  } else if (operator === "/") {
+  } else if (operator === "÷") {
     num = toDiv(n1, n2);
     if (num === Infinity) {
       alert("Nice try!");
@@ -59,12 +59,31 @@ const screen = document.querySelector('#screen');
 let findOp, secondDec;
 
 document.addEventListener('keydown', (event) => {
-    if (!isNaN(Number(event.key))) screen.textContent += event.key;
+    if (!isNaN(Number(event.key))) {
+      if (lastPress === equal) {
+        screen.replaceChildren();
+        lastPress = undefined;
+      }
+      screen.textContent += event.key;
+    }
     switch (event.key) {
       case "/":
+        lastPress = undefined;
+        if (operator === undefined) {
+          screen.textContent += " ÷ ";
+          firstStep();
+        } else {
+          firstStep();
+          operate(n1, operator, n2);
+          operator = "÷";
+          screen.textContent = result + ` ${operator} `;
+        };
+        break;
+
       case "x":
       case "+":
       case "-":
+        lastPress = undefined;
         if (operator === undefined) {
           screen.textContent += ` ${event.key} `;
           firstStep();
