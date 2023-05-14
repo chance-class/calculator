@@ -120,7 +120,6 @@ document.addEventListener('keydown', (event) => {
             findOp = myString.search("M");
             secondDec = myString.substring(findOp, myString.length);
             if (secondDec.includes(".")) {
-              console.log(secondDec);
               return;
             } else {
               screen.textContent += ".";
@@ -129,7 +128,6 @@ document.addEventListener('keydown', (event) => {
             findOp = screen.textContent.search(operator);
             secondDec = screen.textContent.substring(findOp, screen.textContent.length);
             if (secondDec.includes(".")) {
-              console.log(secondDec);
               return;
             } else {
               screen.textContent += ".";
@@ -206,7 +204,6 @@ decimal.addEventListener('click', () => {
       findOp = myString.search("M");
       secondDec = myString.substring(findOp, myString.length);
       if (secondDec.includes(".")) {
-        console.log(secondDec);
         return;
       } else {
         screen.textContent += ".";
@@ -215,7 +212,6 @@ decimal.addEventListener('click', () => {
       findOp = screen.textContent.search(operator);
       secondDec = screen.textContent.substring(findOp, screen.textContent.length);
       if (secondDec.includes(".")) {
-        console.log(secondDec);
         return;
       } else {
         screen.textContent += ".";
