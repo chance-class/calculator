@@ -40,7 +40,7 @@ function operate (n1, operator, n2) {
     num = toDiv(n1, n2);
     if (num === Infinity) {
       alert("Nice try!");
-      n1.toString().includes(".") ? result = n1.toFixed(4).replace(/0+$/, "") : result = n1.toFixed();
+      result = n1;
       return result;
     } else {
       num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
