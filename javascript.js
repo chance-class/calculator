@@ -142,96 +142,106 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-
-const one = document.querySelector('#one');
-one.addEventListener('click', () => {
-  if (lastPress === equal) {
-    screen.replaceChildren();
-    lastPress = undefined;
-  }
-  screen.textContent += 1;
+const intButtons = document.querySelectorAll('.int');
+intButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    if (lastPress === equal) {
+      screen.replaceChildren();
+      lastPress = undefined;
+    }
+    screen.textContent += button.textContent;
+  })
 });
 
-const two = document.querySelector('#two');
-two.addEventListener('click', () => {
-  if (lastPress === equal) {
-    screen.replaceChildren();
-    lastPress = undefined;
-  }
-    screen.textContent += 2;
-  });
+// const one = document.querySelector('#one');
+// one.addEventListener('click', () => {
+//   if (lastPress === equal) {
+//     screen.replaceChildren();
+//     lastPress = undefined;
+//   }
+//   screen.textContent += 1;
+// });
 
-const three = document.querySelector('#three');
-three.addEventListener('click', () => {
-  if (lastPress === equal) {
-    screen.replaceChildren();
-    lastPress = undefined;
-  }
-    screen.textContent += 3;
-  });
+// const two = document.querySelector('#two');
+// two.addEventListener('click', () => {
+//   if (lastPress === equal) {
+//     screen.replaceChildren();
+//     lastPress = undefined;
+//   }
+//     screen.textContent += 2;
+//   });
 
-const four = document.querySelector('#four');
-four.addEventListener('click', () => {
-  if (lastPress === equal) {
-    screen.replaceChildren();
-    lastPress = undefined;
-  }
-    screen.textContent += 4;
-  });
+// const three = document.querySelector('#three');
+// three.addEventListener('click', () => {
+//   if (lastPress === equal) {
+//     screen.replaceChildren();
+//     lastPress = undefined;
+//   }
+//     screen.textContent += 3;
+//   });
 
-const five = document.querySelector('#five');
-five.addEventListener('click', () => {
-  if (lastPress === equal) {
-    screen.replaceChildren();
-    lastPress = undefined;
-  }
-    screen.textContent += 5;
-  });
+// const four = document.querySelector('#four');
+// four.addEventListener('click', () => {
+//   if (lastPress === equal) {
+//     screen.replaceChildren();
+//     lastPress = undefined;
+//   }
+//     screen.textContent += 4;
+//   });
 
-const six = document.querySelector('#six');
-six.addEventListener('click', () => {
-  if (lastPress === equal) {
-    screen.replaceChildren();
-    lastPress = undefined;
-  }
-    screen.textContent += 6;
-  });
+// const five = document.querySelector('#five');
+// five.addEventListener('click', () => {
+//   if (lastPress === equal) {
+//     screen.replaceChildren();
+//     lastPress = undefined;
+//   }
+//     screen.textContent += 5;
+//   });
 
-const seven = document.querySelector('#seven');
-seven.addEventListener('click', () => {
-  if (lastPress === equal) {
-    screen.replaceChildren();
-    lastPress = undefined;
-  }
-    screen.textContent += 7;
-  });
+// const six = document.querySelector('#six');
+// six.addEventListener('click', () => {
+//   if (lastPress === equal) {
+//     screen.replaceChildren();
+//     lastPress = undefined;
+//   }
+//     screen.textContent += 6;
+//   });
 
-const eight = document.querySelector('#eight');
-eight.addEventListener('click', () => {
-  if (lastPress === equal) {
-    screen.replaceChildren();
-    lastPress = undefined;
-  }
-    screen.textContent += 8;
-  });
+// const seven = document.querySelector('#seven');
+// seven.addEventListener('click', () => {
+//   if (lastPress === equal) {
+//     screen.replaceChildren();
+//     lastPress = undefined;
+//   }
+//     screen.textContent += 7;
+//   });
 
-const nine = document.querySelector('#nine');
-nine.addEventListener('click', () => {
-  if (lastPress === equal) {
-    screen.replaceChildren();
-    lastPress = undefined;
-  }
-    screen.textContent += 9;
-  });
+// const eight = document.querySelector('#eight');
+// eight.addEventListener('click', () => {
+//   if (lastPress === equal) {
+//     screen.replaceChildren();
+//     lastPress = undefined;
+//   }
+//     screen.textContent += 8;
+//   });
 
-const zero = document.querySelector('#zero');
-zero.addEventListener('click', () => {
-  if (lastPress === equal) {
-    screen.replaceChildren();
-    lastPress = undefined;
-  }
-    screen.textContent += 0;
-  });
+// const nine = document.querySelector('#nine');
+// nine.addEventListener('click', () => {
+//   if (lastPress === equal) {
+//     screen.replaceChildren();
+//     lastPress = undefined;
+//   }
+//     screen.textContent += 9;
+//   });
+
+// const zero = document.querySelector('#zero');
+// zero.addEventListener('click', () => {
+//   if (lastPress === equal) {
+//     screen.replaceChildren();
+//     lastPress = undefined;
+//   }
+//     screen.textContent += 0;
+//   });
 
 
 const divide = document.querySelector('#divide');
