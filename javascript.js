@@ -25,7 +25,6 @@ function firstStep (input) {
   } else {
     n1 = parseFloat(newInput[0]).toFixed();
   }
-  
   operator = newInput[1];
   n2 = parseFloat(newInput[2]).toFixed(4);
   screen.textContent = `${n1} ${operator} `;
@@ -35,53 +34,25 @@ function firstStep (input) {
 function operate (n1, operator, n2) {
   if (operator === "+") {
     num = toAdd(n1, n2);
-    if (num.toString().includes(".")) {
-      result = num.toFixed(4).replace(/0+$/, "");
-    } else {
-      result = num.toFixed();
-    }
-    n1 = null;
-    n2 = null;
+    num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
     return result;
   } else if (operator === "-") {
     num = toSub(n1, n2);
-    if (num.toString().includes(".")) {
-      result = num.toFixed(4).replace(/0+$/, "");
-    } else {
-      result = num.toFixed();
-    }
-    n1 = null;
-    n2 = null;
+    num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
     return result;
   } else if (operator === "/") {
     num = toDiv(n1, n2);
     if (num === Infinity) {
       alert("Nice try!");
-      if (n1.toString().includes(".")) {
-        result = n1.toFixed(4).replace(/0+$/, "");
-      } else {
-        result = n1.toFixed();
-      }
+      n1.toString().includes(".") ? result = n1.toFixed(4).replace(/0+$/, "") : result = n1.toFixed();
       return result;
     } else {
-      if (num.toString().includes(".")) {
-        result = num.toFixed(4).replace(/0+$/, "");
-      } else {
-        result = num.toFixed();
-      }
-      n1 = null;
-      n2 = null;
+      num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
       return result;
     }
   } else if (operator === "x") {
     num = toMult(n1, n2);
-    if (num.toString().includes(".")) {
-      result = num.toFixed(4).replace(/0+$/, "");
-    } else {
-      result = num.toFixed();
-    }
-    n1 = null;
-    n2 = null;
+    num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
     return result;
   } else {
     return "error";
@@ -248,6 +219,4 @@ clear.addEventListener('click', () => {
 });
 
 const del = document.querySelector('#delete');
-del.addEventListener('click', () => {
-  screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
-});
+del.addEventListener('click', () => screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1));
