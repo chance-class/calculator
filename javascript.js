@@ -162,152 +162,22 @@ intButtons.forEach((button) => {
   })
 });
 
-// const one = document.querySelector('#one');
-// one.addEventListener('click', () => {
-//   if (lastPress === equal) {
-//     screen.replaceChildren();
-//     lastPress = undefined;
-//   }
-//   screen.textContent += 1;
-// });
-
-// const two = document.querySelector('#two');
-// two.addEventListener('click', () => {
-//   if (lastPress === equal) {
-//     screen.replaceChildren();
-//     lastPress = undefined;
-//   }
-//     screen.textContent += 2;
-//   });
-
-// const three = document.querySelector('#three');
-// three.addEventListener('click', () => {
-//   if (lastPress === equal) {
-//     screen.replaceChildren();
-//     lastPress = undefined;
-//   }
-//     screen.textContent += 3;
-//   });
-
-// const four = document.querySelector('#four');
-// four.addEventListener('click', () => {
-//   if (lastPress === equal) {
-//     screen.replaceChildren();
-//     lastPress = undefined;
-//   }
-//     screen.textContent += 4;
-//   });
-
-// const five = document.querySelector('#five');
-// five.addEventListener('click', () => {
-//   if (lastPress === equal) {
-//     screen.replaceChildren();
-//     lastPress = undefined;
-//   }
-//     screen.textContent += 5;
-//   });
-
-// const six = document.querySelector('#six');
-// six.addEventListener('click', () => {
-//   if (lastPress === equal) {
-//     screen.replaceChildren();
-//     lastPress = undefined;
-//   }
-//     screen.textContent += 6;
-//   });
-
-// const seven = document.querySelector('#seven');
-// seven.addEventListener('click', () => {
-//   if (lastPress === equal) {
-//     screen.replaceChildren();
-//     lastPress = undefined;
-//   }
-//     screen.textContent += 7;
-//   });
-
-// const eight = document.querySelector('#eight');
-// eight.addEventListener('click', () => {
-//   if (lastPress === equal) {
-//     screen.replaceChildren();
-//     lastPress = undefined;
-//   }
-//     screen.textContent += 8;
-//   });
-
-// const nine = document.querySelector('#nine');
-// nine.addEventListener('click', () => {
-//   if (lastPress === equal) {
-//     screen.replaceChildren();
-//     lastPress = undefined;
-//   }
-//     screen.textContent += 9;
-//   });
-
-// const zero = document.querySelector('#zero');
-// zero.addEventListener('click', () => {
-//   if (lastPress === equal) {
-//     screen.replaceChildren();
-//     lastPress = undefined;
-//   }
-//     screen.textContent += 0;
-//   });
-
-
-const divide = document.querySelector('#divide');
-divide.addEventListener('click', () => {
+const opButtons = document.querySelectorAll('.oper');
+opButtons.forEach((button) => {
+  button.addEventListener('click', () => {
     lastPress = undefined;
-  if (operator === undefined) {
-    screen.textContent += " / ";
-    firstStep();
-  } else {
-    firstStep();
-    operate(n1, operator, n2);
-    operator = "/";
-    screen.textContent = result + ` ${operator} `;
-  }
+    if (operator === undefined) {
+      screen.textContent += ` ${button.textContent} `;
+      firstStep();
+    } else {
+      firstStep();
+      operate(n1, operator, n2);
+      operator = button.text;
+      screen.textContent = result + ` ${operator} `;
+    }
+  });
 });
 
-const multiply = document.querySelector('#multiply');
-multiply.addEventListener('click', () => {
-    lastPress = undefined;
-  if (operator === undefined) {
-    screen.textContent += " x ";
-    firstStep();
-  } else {
-    firstStep();
-    operate(n1, operator, n2);
-    operator = "x";
-    screen.textContent = result + ` ${operator} `;
-  }
-});
-
-const subtract = document.querySelector('#subtract');
-subtract.addEventListener('click', () => {
-    lastPress = undefined;
-  if (operator === undefined) {
-    screen.textContent += " - ";
-    firstStep();
-  } else {
-    firstStep();
-    operate(n1, operator, n2);
-    operator = "-";
-    screen.textContent = result + ` ${operator} `;
-  }
-});
-
-const add = document.querySelector('#add');
-add.addEventListener('click', () => {
-    lastPress = undefined;
-  if (operator === undefined) {
-    screen.textContent += " + ";
-    firstStep();
-  } else {
-    firstStep();
-    operate(n1, operator, n2);
-    operator = "+";
-    screen.textContent = result + ` ${operator} `;
-  }
-});
 
 const decimal = document.querySelector('#decimal');
 decimal.addEventListener('click', () => {
