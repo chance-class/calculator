@@ -28,30 +28,39 @@ function firstStep (input) {
 }
 
 function operate (n1, operator, n2) {
-  if (operator === "+") {
-    num = toAdd(n1, n2);
-    num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
-    return result;
-  } else if (operator === "-") {
-    num = toSub(n1, n2);
-    num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
-    return result;
-  } else if (operator === "÷") {
-    num = toDiv(n1, n2);
-    if (num === Infinity) {
-      alert("Nice try!");
-      result = n1;
-      return result;
-    } else {
+  switch (operator) {
+    case "+":
+      num = toAdd(n1, n2);
       num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
       return result;
-    }
-  } else if (operator === "x") {
-    num = toMult(n1, n2);
-    num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
-    return result;
-  } else {
-    return "error";
+      break;
+    
+    case "-":
+      num = toSub(n1, n2);
+      num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
+      return result;
+      break;
+
+    case "÷":
+      num = toDiv(n1, n2);
+      if (num === Infinity) {
+        alert("Nice try!");
+        result = n1;
+        return result;
+      } else {
+        num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
+        return result;
+      }
+      break;
+
+    case "x":
+      num = toMult(n1, n2);
+      num.toString().includes(".") ? result = num.toFixed(4).replace(/0+$/, "") : result = num.toFixed();
+      return result;
+      break;
+
+    default:
+      return "error";
   }
 }
 
