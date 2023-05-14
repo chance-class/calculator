@@ -92,64 +92,127 @@ const screen = document.querySelector('#screen');
 let findOp, secondDec;
 
 document.addEventListener('keydown', (event) => {
-    if (!isNaN(Number(event.key))) {
-      screen.textContent += event.key;
-    } else if (event.key === "/" || event.key === "x" || event.key === "+" || event.key === "-" ) {
-      if (operator === undefined) {
-        screen.textContent += ` ${event.key} `;
-        firstStep();
-      } else {
-        firstStep();
-        operate(n1, operator, n2);
-        operator = event.key;
-        screen.textContent = result + ` ${operator} `;
-      };
-    } else if (event.key === ".") {
-      if (lastPress === equal) {
-        screen.replaceChildren();
-        lastPress = undefined;
-      }
-      if (operator !== undefined) {
-        if (operator === "\+") {
-          myString = screen.textContent.replace(/\+/g, "M")
-          findOp = myString.search("M");
-          secondDec = myString.substring(findOp, myString.length);
-          if (secondDec.includes(".")) {
-            console.log(secondDec);
-            return;
-          } else {
-            screen.textContent += ".";
-          }
+    if (!isNaN(Number(event.key))) screen.textContent += event.key;
+    switch (event.key) {
+      case "/":
+        if (operator === undefined) {
+          screen.textContent += ` ${event.key} `;
+          firstStep();
         } else {
-          findOp = screen.textContent.search(operator);
-          secondDec = screen.textContent.substring(findOp, screen.textContent.length);
-          if (secondDec.includes(".")) {
-            console.log(secondDec);
-            return;
-          } else {
-            screen.textContent += ".";
-          }
+          firstStep();
+          operate(n1, operator, n2);
+          operator = event.key;
+          screen.textContent = result + ` ${operator} `;
+        };
+        break;
+
+      case "x":
+        if (operator === undefined) {
+          screen.textContent += ` ${event.key} `;
+          firstStep();
+        } else {
+          firstStep();
+          operate(n1, operator, n2);
+          operator = event.key;
+          screen.textContent = result + ` ${operator} `;
+        };
+        break;
+
+      case "+":
+        if (operator === undefined) {
+          screen.textContent += ` ${event.key} `;
+          firstStep();
+        } else {
+          firstStep();
+          operate(n1, operator, n2);
+          operator = event.key;
+          screen.textContent = result + ` ${operator} `;
+        };
+        break;
+
+      case "-":
+        if (operator === undefined) {
+          screen.textContent += ` ${event.key} `;
+          firstStep();
+        } else {
+          firstStep();
+          operate(n1, operator, n2);
+          operator = event.key;
+          screen.textContent = result + ` ${operator} `;
+        };
+        break;
+
+      case ".":
+        if (lastPress === equal) {
+          screen.replaceChildren();
+          lastPress = undefined;
         }
-       } else if (operator === undefined && !(screen.textContent.includes("."))) {
-        screen.textContent += ".";
-      } 
-    } else if (event.key === "Backspace") {
-      screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
-    } else if (event.key === "=" || event.key === "Enter") {
-      if (screen.textContent === "" || operator === undefined) {
+        if (operator !== undefined) {
+          if (operator === "\+") {
+            myString = screen.textContent.replace(/\+/g, "M")
+            findOp = myString.search("M");
+            secondDec = myString.substring(findOp, myString.length);
+            if (secondDec.includes(".")) {
+              console.log(secondDec);
+              return;
+            } else {
+              screen.textContent += ".";
+            }
+          } else {
+            findOp = screen.textContent.search(operator);
+            secondDec = screen.textContent.substring(findOp, screen.textContent.length);
+            if (secondDec.includes(".")) {
+              console.log(secondDec);
+              return;
+            } else {
+              screen.textContent += ".";
+            }
+          }
+         } else if (operator === undefined && !(screen.textContent.includes("."))) {
+          screen.textContent += ".";
+        } 
+        break;
+
+      case "Backspace":
+        screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1);
+        break;
+
+      case "=":
+        if (screen.textContent === "" || operator === undefined) {
+          return;
+        } else {
+          firstStep();
+          operate(n1, operator, n2);
+          screen.textContent = result;
+          lastPress = equal;
+          operator = undefined;
+          n1 = null;
+          n2 = null;
+          screen.value = null;
+        }
+        break;
+
+      case "Enter":
+        if (screen.textContent === "" || operator === undefined) {
+          return;
+        } else {
+          firstStep();
+          operate(n1, operator, n2);
+          screen.textContent = result;
+          lastPress = equal;
+          operator = undefined;
+          n1 = null;
+          n2 = null;
+          screen.value = null;
+        }
+        break;
+
+      default:
         return;
-      } else {
-        firstStep();
-        operate(n1, operator, n2);
-        screen.textContent = result;
-        lastPress = equal;
-        operator = undefined;
-        n1 = null;
-        n2 = null;
-        screen.value = null;
-      }
     }
-});
+ });
+
+
 
 const intButtons = document.querySelectorAll('.int');
 intButtons.forEach((button) => {
@@ -177,7 +240,6 @@ opButtons.forEach((button) => {
     }
   });
 });
-
 
 const decimal = document.querySelector('#decimal');
 decimal.addEventListener('click', () => {
