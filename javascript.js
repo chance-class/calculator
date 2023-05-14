@@ -21,7 +21,7 @@ function firstStep (input) {
   input = String(screen.textContent);
   let newInput = input.split(" ");
   if (newInput[0].toString().includes(".")) {
-    n1 = parseFloat(newInput[0]).toFixed(4);
+    n1 = parseFloat(newInput[0]).toFixed(4).replace(/0+$/, "");
   } else {
     n1 = parseFloat(newInput[0]).toFixed();
   }
@@ -105,6 +105,10 @@ document.addEventListener('keydown', (event) => {
         screen.textContent = result + ` ${operator} `;
       };
     } else if (event.key === ".") {
+      if (lastPress === equal) {
+        screen.replaceChildren();
+        lastPress = undefined;
+      }
       if (operator !== undefined) {
         if (operator === "\+") {
           myString = screen.textContent.replace(/\+/g, "M")
@@ -307,6 +311,10 @@ add.addEventListener('click', () => {
 
 const decimal = document.querySelector('#decimal');
 decimal.addEventListener('click', () => {
+  if (lastPress === equal) {
+     screen.replaceChildren();
+     lastPress = undefined;
+   }
   if (operator !== undefined) {
     if (operator === "\+") {
       myString = screen.textContent.replace(/\+/g, "M")
