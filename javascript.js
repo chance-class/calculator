@@ -235,7 +235,7 @@ opButtons.forEach((button) => {
     } else {
       firstStep();
       operate(n1, operator, n2);
-      operator = button.text;
+      operator = button.textContent;
       screen.textContent = result + ` ${operator} `;
     }
   });
