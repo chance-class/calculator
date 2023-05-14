@@ -20,11 +20,7 @@ function toMult (n1, n2) {
 function firstStep (input) {
   input = String(screen.textContent);
   let newInput = input.split(" ");
-  if (newInput[0].toString().includes(".")) {
-    n1 = parseFloat(newInput[0]).toFixed(4).replace(/0+$/, "");
-  } else {
-    n1 = parseFloat(newInput[0]).toFixed();
-  }
+  newInput[0].toString().includes(".") ? n1 = parseFloat(newInput[0]).toFixed(4).replace(/0+$/, "") : n1 = parseFloat(newInput[0]).toFixed();
   operator = newInput[1];
   n2 = parseFloat(newInput[2]).toFixed(4);
   screen.textContent = `${n1} ${operator} `;
