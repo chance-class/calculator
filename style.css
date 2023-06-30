@@ -29,12 +29,15 @@
   justify-content: flex-end;
 }
 
-.buttons, 
-.cancel {
+button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   color: black;
+}
+
+.buttons, 
+.cancel {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
